@@ -1,32 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Our Anniversary ❤️</title>
-  <style>
-    body {
-      text-align: center;
-      font-family: Arial;
-      background: #ffe6e6;
-      color: #333;
-    }
-    img {
-      width: 300px;
-      border-radius: 20px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #000000, #2b0000, #ff4d6d);
+    color: white;
+    overflow-x: hidden;
+  }
+
+  /* LOCK SCREEN */
+  #lockScreen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+  }
+
+  input {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #ff4d6d;
+    color: white;
+    cursor: pointer;
+  }
+
+  /* VIDEO SECTION */
+  .video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  video {
+    width: 90%;
+    max-width: 900px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  }
+
+  /* GALLERY */
+  .gallery {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .gallery img {
+    width: 100%;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.05);
+  }
+
+</style>
 </head>
 
 <body>
-  <h1>Happy Anniversary ❤️</h1>
-  <p>I love you so much. Thank you for everything.</p>
 
-  <img src="yourphoto.jpg" alt="Us">
+<!-- LOCK SCREEN -->
+<div id="lockScreen">
+  <h2>Enter our date ❤️</h2>
+  <input type="password" id="password" placeholder="MM-DD-YY">
+  <button onclick="checkPassword()">Unlock</button>
+</div>
 
-  <br><br>
-
-  <video width="320" controls>
+<!-- VIDEO -->
+<div class="video-container">
+  <video controls autoplay>
     <source src="yourvideo.mp4" type="video/mp4">
   </video>
+</div>
+
+<!-- GALLERY -->
+<div class="gallery">
+  <img src="pic1.jpg">
+  <img src="pic2.jpg">
+  <img src="pic3.jpg">
+  <img src="pic4.jpg">
+</div>
+
+<script>
+function checkPassword() {
+  const pass = document.getElementById("password").value;
+  if(pass === "04-13-25") {
+    document.getElementById("lockScreen").style.display = "none";
+  } else {
+    alert("Wrong date 😢");
+  }
+}
+</script>
 
 </body>
 </html>

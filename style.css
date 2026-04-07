@@ -91,10 +91,19 @@ body {
     transform: translateX(-50%);
     width: 60px;
     height: 60px;
-    background: radial-gradient(circle, #FF0000, #8B0000);
+    background: radial-gradient(circle, #000000, #333333);
     border-radius: 50%;
-    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.6);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
     z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: #FF0000;
+}
+
+.ribbon-knot::before {
+    content: '❤️';
 }
 
 /* Lock Container */
@@ -124,7 +133,7 @@ body {
 #passwordInput {
     padding: 12px 20px;
     font-size: 18px;
-    border: 2px solid #FFD700;
+    border: 2px solid #8B0000;
     border-radius: 25px;
     background: rgba(255, 255, 255, 0.9);
     text-align: center;

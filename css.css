@@ -1,0 +1,320 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #000000, #8B0000, #FF1493, #000000);
+    min-height: 100vh;
+}
+
+/* Gift Container Styles */
+.gift-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.gift-box {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotateY(0deg); }
+    50% { transform: translateY(-20px) rotateY(5deg); }
+}
+
+.gift-body {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(45deg, #FF69B4, #FF1493);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gift-lid {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(45deg, #FF1493, #C71585);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transform-origin: bottom;
+    transition: transform 0.5s ease;
+}
+
+.gift-lid.open {
+    transform: rotateX(-120deg);
+}
+
+/* Ribbon Styles */
+.ribbon-horizontal {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.5);
+}
+
+.ribbon-vertical {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 100%;
+    background: linear-gradient(180deg, #FFD700, #FFA500, #FFD700);
+    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.5);
+}
+
+.ribbon-knot {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #FFD700, #FFA500);
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.6);
+    z-index: 10;
+}
+
+/* Lock Container */
+.lock-container {
+    text-align: center;
+    color: white;
+}
+
+.lock-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.password-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+#passwordInput {
+    padding: 12px 20px;
+    font-size: 18px;
+    border: 2px solid #FFD700;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    width: 200px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#passwordInput:focus {
+    border-color: #FF1493;
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.5);
+}
+
+#unlockBtn {
+    padding: 10px 30px;
+    font-size: 16px;
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    color: #000;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#unlockBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+.hint {
+    margin-top: 15px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+}
+
+/* Content Container */
+.content-container {
+    min-height: 100vh;
+    transition: opacity 0.5s ease;
+}
+
+.content-container.hidden {
+    display: none;
+}
+
+/* Video Section */
+.video-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.main-video {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    max-height: 80vh;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    object-fit: cover;
+}
+
+/* Gallery Section */
+.gallery-section {
+    padding: 60px 20px;
+    background: linear-gradient(180deg, 
+        rgba(0, 0, 0, 0.3) 0%, 
+        rgba(139, 0, 0, 0.3) 30%, 
+        rgba(255, 20, 147, 0.3) 70%, 
+        rgba(0, 0, 0, 0.5) 100%);
+}
+
+.gallery-title {
+    text-align: center;
+    font-size: 48px;
+    color: #FFD700;
+    margin-bottom: 50px;
+    text-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+    font-weight: bold;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.photo-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.photo-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(255, 20, 147, 0.4);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.photo-item:hover img {
+    transform: scale(1.1);
+}
+
+.photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 20px 15px 15px;
+    font-size: 16px;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.photo-item:hover .photo-caption {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gift-box {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .gift-body {
+        height: 150px;
+    }
+    
+    .gift-lid {
+        height: 80px;
+    }
+    
+    .gallery-title {
+        font-size: 36px;
+    }
+    
+    .photo-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .photo-item img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gift-box {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .gift-body {
+        height: 120px;
+    }
+    
+    .gift-lid {
+        height: 60px;
+    }
+    
+    #passwordInput {
+        width: 150px;
+        font-size: 16px;
+    }
+    
+    .gallery-title {
+        font-size: 28px;
+    }
+    
+    .photo-gallery {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}

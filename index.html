@@ -1,120 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For You ❤️</title>
-
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #000000, #2b0000, #ff4d6d);
-    color: white;
-    overflow-x: hidden;
-  }
-
-  /* LOCK SCREEN */
-  #lockScreen {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 10;
-  }
-
-  input {
-    padding: 12px;
-    border-radius: 10px;
-    border: none;
-    margin-top: 10px;
-    text-align: center;
-  }
-
-  button {
-    padding: 10px 20px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 10px;
-    background: #ff4d6d;
-    color: white;
-    cursor: pointer;
-  }
-
-  /* VIDEO SECTION */
-  .video-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-
-  video {
-    width: 90%;
-    max-width: 900px;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-  }
-
-  /* GALLERY */
-  .gallery {
-    padding: 40px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-  }
-
-  .gallery img {
-    width: 100%;
-    border-radius: 15px;
-    transition: transform 0.3s ease;
-  }
-
-  .gallery img:hover {
-    transform: scale(1.05);
-  }
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Special Gift</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <!-- Gift Box Container -->
+    <div id="giftContainer" class="gift-container">
+        <div class="gift-box">
+            <div class="gift-lid">
+                <div class="ribbon-horizontal"></div>
+                <div class="ribbon-vertical"></div>
+                <div class="ribbon-knot"></div>
+            </div>
+            <div class="gift-body">
+                <div class="lock-container">
+                    <div class="lock-icon">🔒</div>
+                    <div class="password-input-container">
+                        <input type="text" id="passwordInput" placeholder="Enter password" maxlength="8">
+                        <button id="unlockBtn">Unlock</button>
+                    </div>
+                    <div class="hint">Hint: Our special date (MM-DD-YY)</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<!-- LOCK SCREEN -->
-<div id="lockScreen">
-  <h2>Enter our date ❤️</h2>
-  <input type="password" id="password" placeholder="MM-DD-YY">
-  <button onclick="checkPassword()">Unlock</button>
-</div>
+    <!-- Content Container (Hidden initially) -->
+    <div id="contentContainer" class="content-container hidden">
+        <!-- Video Section -->
+        <section class="video-section">
+            <video id="mainVideo" controls autoplay muted loop class="main-video">
+                <source src="video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
 
-<!-- VIDEO -->
-<div class="video-container">
-  <video controls autoplay>
-    <source src="yourvideo.mp4" type="video/mp4">
-  </video>
-</div>
+        <!-- Photo Gallery Section -->
+        <section class="gallery-section">
+            <h2 class="gallery-title">Our Memories</h2>
+            <div class="photo-gallery">
+                <div class="photo-item">
+                    <img src="photo1.jpg" alt="Memory 1">
+                    <div class="photo-caption">Our first moment</div>
+                </div>
+                <div class="photo-item">
+                    <img src="photo2.jpg" alt="Memory 2">
+                    <div class="photo-caption">Amazing times</div>
+                </div>
+                <div class="photo-item">
+                    <img src="photo3.jpg" alt="Memory 3">
+                    <div class="photo-caption">Forever together</div>
+                </div>
+                <div class="photo-item">
+                    <img src="photo4.jpg" alt="Memory 4">
+                    <div class="photo-caption">Beautiful journey</div>
+                </div>
+                <div class="photo-item">
+                    <img src="photo5.jpg" alt="Memory 5">
+                    <div class="photo-caption">Love story</div>
+                </div>
+                <div class="photo-item">
+                    <img src="photo6.jpg" alt="Memory 6">
+                    <div class="photo-caption">Happiness</div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-<!-- GALLERY -->
-<div class="gallery">
-  <img src="pic1.jpg">
-  <img src="pic2.jpg">
-  <img src="pic3.jpg">
-  <img src="pic4.jpg">
-</div>
-
-<script>
-function checkPassword() {
-  const pass = document.getElementById("password").value;
-  if(pass === "04-13-25") {
-    document.getElementById("lockScreen").style.display = "none";
-  } else {
-    alert("Wrong date 😢");
-  }
-}
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
